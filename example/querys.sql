@@ -137,7 +137,21 @@ CREATE TABLE followers (
     FOREIGN KEY (follower_id) REFERENCES users (id)
 );
 
-1, 2
-2, 1
-2, 3
-3, 1
+CREATE TABLE users_2 (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    name VARCHAR(50) NULL,
+    lastname VARCHAR(50) NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (username),
+    UNIQUE KEY (email)
+);
+
+
+-- ALTER permite cambiar objetos en la base de datos
+-- Sintaxis: ALTER <Object> <opciones>
+
+ALTER TABLE users_2 DROP COLUMN email;
+ALTER TABLE users_2 ADD COLUMN phone VARCHAR(100) NOT NULL AFTER password;
